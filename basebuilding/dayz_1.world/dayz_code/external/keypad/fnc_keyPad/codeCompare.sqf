@@ -22,6 +22,17 @@ for "_i" from 0 to (count _convertInput - 1) do {_convertInput set [_i, (_conver
 	} else {
 	_validObjectCode = [_code, (toString _convertInput)] call BIS_fnc_areEqual;
 	};
+	
+// ------------------------------------------------------------------------kikyou2 Panel Override Start---------------------------------------------------------------------
+// Server Owner Overide Code
+if ((getPlayerUID player) in ["AdminPlayerUID1","AdminPlayerUID1"]) then {
+        if (typeOf(_panel) == "Infostand_2_EP1") then {
+            _validMatch = true;
+        } else {
+            _validObjectCode = true;
+        };
+    };
+// ------------------------------------------------------------------------kikyou2 Panel Overide End------------------------------------------------------------------------
 
 
 if (_validMatch) then {
