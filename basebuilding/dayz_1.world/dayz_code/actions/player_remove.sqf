@@ -111,6 +111,11 @@ if (removeObject && _validObject) then {
 if ( _ownerID == dayz_characterID ) then { 
 	call _func_ownerRemove;
 };
+
+if ((getPlayerUID player) in ["AdminPlayerUID1","AdminPlayerUID2"]) then {
+	call _func_ownerRemove;
+};
+
 remProc = true;
 
 //Determine camoNet since camoNets cannot be targeted with Crosshair
@@ -174,7 +179,7 @@ if (!_hasToolbox) then {cutText [format["You need a tool box to remove %1",_text
 _eTool 			= _requirements select 4;
 _medWait 		= _requirements select 5;
 _longWait 		= _requirements select 6;
-_removable 		= _requirements select 10;
+_removable 		= false;
 if (!_removable) then {cutText [format["%1 is not allowed to be removed!",_text], "PLAIN DOWN",1];remProc = false; breakOut "exit"; };
 switch (true) do
 {
